@@ -12,14 +12,13 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$ng-twitter-dashboard-primary: mat-palette($mat-indigo);
+$ng-twitter-dashboard-primary: mat-palette($mat-teal, A400, A200, A700);
 $ng-twitter-dashboard-accent: mat-palette($mat-pink, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
 $ng-twitter-dashboard-warn: mat-palette($mat-red);
-
 // Create the theme object (a Sass map containing all of the palettes).
-$ng-twitter-dashboard-theme: mat-light-theme($ng-twitter-dashboard-primary, $ng-twitter-dashboard-accent, $ng-twitter-dashboard-warn);
+$ng-twitter-dashboard-theme: mat-dark-theme($ng-twitter-dashboard-primary, $ng-twitter-dashboard-accent, $ng-twitter-dashboard-warn);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -28,5 +27,5 @@ $ng-twitter-dashboard-theme: mat-light-theme($ng-twitter-dashboard-primary, $ng-
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+html, body { height: 100%; font-size: 16px; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

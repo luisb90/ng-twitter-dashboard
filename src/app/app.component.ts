@@ -7,9 +7,9 @@ import { DataStreamService } from './services/data-stream.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ng-twitter-dashboard';
+  title = 'Twitter dashboard';
 
   constructor(public streamService: DataStreamService) {
-    streamService.initMessageStream();
+    // streamService.initMessageStream();
   }
 }
