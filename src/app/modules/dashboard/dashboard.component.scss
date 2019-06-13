@@ -1,9 +1,12 @@
 :host {
-  > div {
-    padding: 15px;
+  > .container {
+    padding: 15px 20px;
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+    }
   }
 
-  .card-container {
-    display: flex;
-  }
 }

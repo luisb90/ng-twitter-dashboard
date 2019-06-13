@@ -51,6 +51,9 @@ export class DataStreamService {
   }
 
   private hasHashtag(tweet: TwitterMessage) {
-    return tweet.entities.hashtags.find(h => h.text.toLowerCase() === this.hashtag.toLowerCase());
+    return (
+      tweet.text.toLowerCase().includes(this.hashtag.toLowerCase()) ||
+      tweet.entities.hashtags.find(h => h.text.toLowerCase() === this.hashtag.toLowerCase())
+    );
   }
 }

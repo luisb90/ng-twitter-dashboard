@@ -1,7 +1,9 @@
-<div>
-  <h2 *ngIf="(selectedHashtag$ | async) as selectedHashtag">#{{ selectedHashtag }}</h2>
-</div>
+<div class="container">
+  <div>
+    <h2 *ngIf="(selectedHashtag$ | async) as selectedHashtag">#{{ selectedHashtag }}</h2>
+  </div>
 
-<div class="card-container">
-  <app-number-of-tweets-card></app-number-of-tweets-card>
+  <div class="card-container">
+    <app-number-of-tweets-card></app-number-of-tweets-card>
+  </div>
 </div>
