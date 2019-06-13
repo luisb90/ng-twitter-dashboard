@@ -23,6 +23,11 @@ export const twitterDataReducer = produce(
         draft.countryCodeData = {};
         return;
       }
+
+      case TwitterDataActionTypes.PROCESS_TWEET: {
+        draft.tweetCount[action.payload.hashtag]++;
+        return;
+      }
     }
   },
   initialState

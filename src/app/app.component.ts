@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { SetSelectedHashtag } from './store/twitter-data/twitter-data.actions';
+import { SetSelectedHashtag, InitializeStream } from './store/twitter-data/twitter-data.actions';
 import { State } from './store';
 
 @Component({
@@ -12,7 +12,9 @@ import { State } from './store';
 export class AppComponent {
   title = 'Twitter dashboard';
 
-  constructor(private store: Store<State>) {}
+  constructor(private store: Store<State>) {
+    this.store.dispatch(new InitializeStream());
+  }
 
   public setSelectedHashtag(hashtag: string) {
     if (hashtag) {
