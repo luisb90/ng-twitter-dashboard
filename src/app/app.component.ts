@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataStreamService } from './services/data-stream.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ng-twitter-dashboard';
+
+  constructor(public streamService: DataStreamService) {
+    streamService.initMessageStream();
+  }
 }
