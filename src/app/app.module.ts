@@ -5,20 +5,23 @@ import { PubNubAngular } from 'pubnub-angular2';
 import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 import { AppComponent } from './app.component';
 import { TwitterStoreModule } from './store';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
+import { NumberOfTweetsCardComponent } from './modules/dashboard/number-of-tweets-card/number-of-tweets-card.component';
 
 @NgModule({
-  declarations: [AppComponent, DashboardComponent],
+  declarations: [AppComponent, DashboardComponent, NumberOfTweetsCardComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     TwitterStoreModule,
     MatInputModule,
     MatDividerModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule
   ],
   providers: [PubNubAngular],
   bootstrap: [AppComponent]
