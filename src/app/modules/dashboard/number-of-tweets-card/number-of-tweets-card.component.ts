@@ -12,9 +12,10 @@ import { selectHashtagTweetCount } from '../../../store/twitter-data/twitter-dat
 })
 export class NumberOfTweetsCardComponent implements OnInit {
   public selectedHashtagTweetCount$: Observable<number>;
-  constructor(private store: Store<State>) {
+
+  constructor(private store: Store<State>) {}
+
+  ngOnInit() {
     this.selectedHashtagTweetCount$ = this.store.select(selectHashtagTweetCount);
   }
-
-  ngOnInit() {}
 }

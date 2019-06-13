@@ -11,9 +11,10 @@ import { AppComponent } from './app.component';
 import { TwitterStoreModule } from './store';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { NumberOfTweetsCardComponent } from './modules/dashboard/number-of-tweets-card/number-of-tweets-card.component';
+import { AveragePerMinuteCardComponent } from './modules/dashboard/average-per-minute-card/average-per-minute-card.component';
 
 @NgModule({
-  declarations: [AppComponent, DashboardComponent, NumberOfTweetsCardComponent],
+  declarations: [AppComponent, DashboardComponent, NumberOfTweetsCardComponent, AveragePerMinuteCardComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 
@@ -10,10 +10,12 @@ import { State } from '../../store';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
   public selectedHashtag$: Observable<string>;
 
-  constructor(private store: Store<State>) {
+  constructor(private store: Store<State>) {}
+
+  public ngOnInit() {
     this.selectedHashtag$ = this.store.select(selectSelectedHashtag);
   }
 }
