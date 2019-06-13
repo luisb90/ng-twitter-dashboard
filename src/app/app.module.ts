@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { PubNubAngular } from 'pubnub-angular2';
 import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatButtonModule } from '@angular/material/button';
 
 import { AppComponent } from './app.component';
 import { TwitterStoreModule } from './store';
@@ -16,7 +17,8 @@ import { DashboardComponent } from './modules/dashboard/dashboard.component';
     BrowserAnimationsModule,
     TwitterStoreModule,
     MatInputModule,
-    MatDividerModule
+    MatDividerModule,
+    MatButtonModule
   ],
   providers: [PubNubAngular],
   bootstrap: [AppComponent]

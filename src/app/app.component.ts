@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { DataStreamService } from './services/data-stream.service';
+import { Store } from '@ngrx/store';
+
+import { SetSelectedHashtag } from './store/twitter-data/twitter-data.actions';
+import { State } from './store';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +12,11 @@ import { DataStreamService } from './services/data-stream.service';
 export class AppComponent {
   title = 'Twitter dashboard';
 
-  constructor(public streamService: DataStreamService) {
-    // streamService.initMessageStream();
+  constructor(private store: Store<State>) {}
+
+  public setSelectedHashtag(hashtag: string) {
+    if (hashtag) {
+      this.store.dispatch(new SetSelectedHashtag({ hashtag }));
+    }
   }
 }

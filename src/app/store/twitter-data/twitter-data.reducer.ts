@@ -1,4 +1,6 @@
-import { TwitterDataActionsUnion } from './twitter-data.actions';
+import produce from 'immer';
+
+import { TwitterDataActionsUnion, TwitterDataActionTypes } from './twitter-data.actions';
 
 export interface TwitterDataState {
   tweetCount: { [hashtag: string]: number };
@@ -7,11 +9,21 @@ export interface TwitterDataState {
 }
 
 export const initialState = {
-  tweetCount: { '': 0 },
+  tweetCount: {},
   countryCodeData: {},
   selectedHashtag: ''
 };
 
-export function twitterDataReducer(state = initialState, action: TwitterDataActionsUnion): TwitterDataState {
-  return state;
-}
+export const twitterDataReducer = produce(
+  (draft: TwitterDataState, action: TwitterDataActionsUnion) => {
+    switch (action.type) {
+      case TwitterDataActionTypes.SET_SELECTED_HASHTAG: {
+        draft.selectedHashtag = action.payload.hashtag;
+        draft.tweetCount[action.payload.hashtag] = draft.tweetCount[action.payload.hashtag] || 0;
+        draft.countryCodeData = {};
+        return;
+      }
+    }
+  },
+  initialState
+);

@@ -1,6 +1,15 @@
 <div>
   <h1>{{ title }}</h1>
-  <h3>Type in a hashtag to see real-time statistics.</h3>
+  <h4>Type in a hashtag to see real-time statistics.</h4>
+  <mat-form-field>
+    <input
+      matInput
+      #input
+      placeholder="try this: crypto"
+      (keyup.enter)="setSelectedHashtag(input.value)"
+      required
+    />
+  </mat-form-field>
 </div>
 <mat-divider></mat-divider>
 <app-dashboard></app-dashboard>

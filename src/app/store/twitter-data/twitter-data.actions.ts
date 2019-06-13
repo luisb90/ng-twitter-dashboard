@@ -1,7 +1,13 @@
 import { Action } from '@ngrx/store';
 
-export class PlaceholderAction implements Action {
-  readonly type = 'placeholder';
+export enum TwitterDataActionTypes {
+  SET_SELECTED_HASHTAG = '[User] Set Selected Hashtag'
 }
 
-export type TwitterDataActionsUnion = PlaceholderAction;
+export class SetSelectedHashtag implements Action {
+  readonly type = TwitterDataActionTypes.SET_SELECTED_HASHTAG;
+
+  constructor(readonly payload: { hashtag: string }) {}
+}
+
+export type TwitterDataActionsUnion = SetSelectedHashtag;
