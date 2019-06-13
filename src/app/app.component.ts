@@ -13,7 +13,7 @@ export class AppComponent {
   title = 'Twitter dashboard';
 
   constructor(private store: Store<State>) {
-    this.setSelectedHashtag('a');
+    this.setSelectedHashtag('and');
     this.store.dispatch(new InitializeStream());
   }
 
