@@ -1,8 +1,18 @@
 <div class="container">
   <div class="selected-hashtag">
-    <h1 *ngIf="selectedHashtag$ | async as selectedHashtag">
-      #{{ selectedHashtag }}
-    </h1>
+    <mat-form-field>
+      <input
+        matInput
+        [formControl]="hashtagFormControl"
+        #input
+        placeholder="try this: crypto"
+        (keyup.enter)="setSelectedHashtag(input.value)"
+        required
+      />
+      <mat-error *ngIf="hashtagFormControl.hasError('required')">
+        Please set a hashtag.
+      </mat-error>
+    </mat-form-field>
   </div>
 
   <div class="card-container">

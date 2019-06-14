@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 import { PubNubAngular } from 'pubnub-angular2';
 import { Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
@@ -11,7 +11,7 @@ import { ProcessTweet } from '../store/twitter-data/twitter-data.actions';
 @Injectable({
   providedIn: 'root'
 })
-export class DataStreamService {
+export class DataStreamService implements OnDestroy {
   private channel = 'pubnub-twitter';
   private hashtag: string;
   private subs: Subscription[] = [];
@@ -43,12 +43,19 @@ export class DataStreamService {
     });
   }
 
+  public ngOnDestroy() {
+    for (const sub of this.subs) {
+      sub.unsubscribe();
+    }
+
+    this.twitterPubNub.unsubscribeAll();
+    this.twitterPubNub.stop();
+  }
+
   private processTweet(data: any) {
     const tweet: TwitterMessage = data.message;
 
     if (this.hashtag && this.hasHashtag(tweet)) {
-      this.store.dispatch(new ProcessTweet({ hashtag: this.hashtag, tweet }));
-    } else if (!this.hashtag && !tweet.entities.hashtags.length) {
       this.store.dispatch(new ProcessTweet({ hashtag: this.hashtag, tweet }));
     }
   }

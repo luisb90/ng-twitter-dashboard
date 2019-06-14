@@ -1,6 +1,6 @@
 import { createFeatureSelector, createSelector, select } from '@ngrx/store';
 import { pipe } from 'rxjs';
-import { bufferTime, pairwise, map, startWith } from 'rxjs/operators';
+import { bufferTime, pairwise, map, startWith, skip } from 'rxjs/operators';
 
 import { TwitterDataState } from './twitter-data.reducer';
 
@@ -40,6 +40,7 @@ export const selectCountryCodeDataArray = createSelector(
 
 export const selectTweetAveragePerMin = pipe(
   select(selectHashtagTweetCount),
+  skip(1),
   bufferTime(1000),
   pairwise(),
   map(buffer => (buffer[0].length + buffer[1].length) * 30)

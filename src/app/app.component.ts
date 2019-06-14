@@ -1,10 +1,7 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import {
-  SetSelectedHashtag,
-  InitializeStream
-} from './store/twitter-data/twitter-data.actions';
+import { InitializeStream } from './store/twitter-data/twitter-data.actions';
 import { State } from './store';
 
 @Component({
@@ -13,17 +10,12 @@ import { State } from './store';
   styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Twitter Dashboard';
 
-  constructor(private store: Store<State>) {
-    this.setSelectedHashtag('a');
-    // this.store.dispatch(new InitializeStream());
-  }
+  constructor(private store: Store<State>) {}
 
-  public setSelectedHashtag(hashtag: string) {
-    if (hashtag) {
-      this.store.dispatch(new SetSelectedHashtag({ hashtag }));
-    }
+  public ngOnInit() {
+    this.store.dispatch(new InitializeStream());
   }
 }

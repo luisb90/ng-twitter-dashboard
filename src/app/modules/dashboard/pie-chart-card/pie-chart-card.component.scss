@@ -1,5 +1,6 @@
 :host {
-  flex-basis: auto;
+  display: block;
+  flex-basis: 50%;
 
   .chart {
     height: 300px;

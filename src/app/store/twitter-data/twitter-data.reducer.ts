@@ -21,6 +21,7 @@ export const twitterDataReducer = produce(
   (draft: TwitterDataState, action: TwitterDataActionsUnion) => {
     switch (action.type) {
       case TwitterDataActionTypes.SET_SELECTED_HASHTAG: {
+        draft.tweetCount[draft.selectedHashtag] = 0;
         draft.selectedHashtag = action.payload.hashtag;
         draft.tweetCount[action.payload.hashtag] =
           draft.tweetCount[action.payload.hashtag] || 0;
