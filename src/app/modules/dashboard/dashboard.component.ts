@@ -26,7 +26,9 @@ export class DashboardComponent implements OnInit {
 
   public ngOnInit() {
     this.selectedHashtag$ = this.store.select(selectSelectedHashtag);
-    this.selectedHashtagTweetCount$ = this.store.select(selectHashtagTweetCount);
+    this.selectedHashtagTweetCount$ = this.store.select(
+      selectHashtagTweetCount
+    );
     this.selectedHashtagAvgPerMin$ = this.store.pipe(selectTweetAveragePerMin);
     this.chartData$ = this.store.select(selectCountryCodeDataArray);
   }

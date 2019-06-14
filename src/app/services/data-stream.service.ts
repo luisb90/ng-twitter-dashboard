@@ -16,7 +16,10 @@ export class DataStreamService {
   private hashtag: string;
   private subs: Subscription[] = [];
 
-  constructor(private twitterPubNub: PubNubAngular, private store: Store<State>) {
+  constructor(
+    private twitterPubNub: PubNubAngular,
+    private store: Store<State>
+  ) {
     this.subs.push(
       store.select(selectSelectedHashtag).subscribe(hashtag => {
         this.hashtag = hashtag;
@@ -53,7 +56,9 @@ export class DataStreamService {
   private hasHashtag(tweet: TwitterMessage) {
     return (
       tweet.text.toLowerCase().includes(this.hashtag.toLowerCase()) ||
-      tweet.entities.hashtags.find(h => h.text.toLowerCase() === this.hashtag.toLowerCase())
+      tweet.entities.hashtags.find(
+        h => h.text.toLowerCase() === this.hashtag.toLowerCase()
+      )
     );
   }
 }

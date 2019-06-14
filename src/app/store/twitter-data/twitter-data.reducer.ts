@@ -1,6 +1,9 @@
 import produce from 'immer';
 
-import { TwitterDataActionsUnion, TwitterDataActionTypes } from './twitter-data.actions';
+import {
+  TwitterDataActionsUnion,
+  TwitterDataActionTypes
+} from './twitter-data.actions';
 
 export interface TwitterDataState {
   tweetCount: { [hashtag: string]: number };
@@ -19,7 +22,8 @@ export const twitterDataReducer = produce(
     switch (action.type) {
       case TwitterDataActionTypes.SET_SELECTED_HASHTAG: {
         draft.selectedHashtag = action.payload.hashtag;
-        draft.tweetCount[action.payload.hashtag] = draft.tweetCount[action.payload.hashtag] || 0;
+        draft.tweetCount[action.payload.hashtag] =
+          draft.tweetCount[action.payload.hashtag] || 0;
         draft.countryCodeData = {};
         return;
       }
@@ -30,7 +34,8 @@ export const twitterDataReducer = produce(
 
         draft.tweetCount[action.payload.hashtag]++;
         if (countryCode) {
-          draft.countryCodeData[countryCode] = draft.countryCodeData[countryCode] || 0;
+          draft.countryCodeData[countryCode] =
+            draft.countryCodeData[countryCode] || 0;
           draft.countryCodeData[countryCode]++;
         }
         return;
