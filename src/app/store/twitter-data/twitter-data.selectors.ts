@@ -1,6 +1,6 @@
 import { createFeatureSelector, createSelector, select } from '@ngrx/store';
 import { pipe } from 'rxjs';
-import { bufferTime, pairwise, map, startWith, skip } from 'rxjs/operators';
+import { bufferTime, map, skip, scan } from 'rxjs/operators';
 
 import { TwitterDataState } from './twitter-data.reducer';
 
@@ -43,10 +43,28 @@ export const selectHashtagHistory = createSelector(
   tweetCount => Object.keys(tweetCount)
 );
 
+/**
+ * This selector calculates a rolling average of the amount of tweets coming in per minute.
+ * Every second, We read the last 5 tweet count updates in that time frame, and take their
+ * average, which gives us average tweets per second. We multiply by 60 to get an approximation of tweets per minute.
+ */
 export const selectTweetAveragePerMin = pipe(
   select(selectHashtagTweetCount),
   skip(1),
   bufferTime(1000),
-  pairwise(),
-  map(buffer => (buffer[0].length + buffer[1].length) * 30)
+  scan((a, c) => {
+    a = [...a, c];
+
+    // only store the last 5 values.
+    if (a.length > 5) {
+      a.shift();
+    }
+
+    return a;
+  }, []),
+  map(buffers => {
+    // take the average of the last 5 update counts and multiply by 60 to get avg / min.
+    const sum = buffers.reduce((a, c) => a + c.length, 0);
+    return Math.round(sum / buffers.length) * 60;
+  })
 );
