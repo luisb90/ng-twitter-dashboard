@@ -17,8 +17,11 @@ export const initialState: TwitterDataState = {
   selectedHashtag: ''
 };
 
-export const twitterDataReducer = produce(
-  (draft: TwitterDataState, action: TwitterDataActionsUnion) => {
+export function twitterDataReducer(
+  state: TwitterDataState = initialState,
+  action: TwitterDataActionsUnion
+) {
+  return produce(state, draft => {
     switch (action.type) {
       case TwitterDataActionTypes.SET_SELECTED_HASHTAG: {
         if (draft.selectedHashtag === action.payload.hashtag) {
@@ -49,10 +52,6 @@ export const twitterDataReducer = produce(
         }
         return;
       }
-      default: {
-        return;
-      }
     }
-  },
-  initialState
-);
+  });
+}
