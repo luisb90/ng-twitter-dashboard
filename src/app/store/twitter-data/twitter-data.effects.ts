@@ -14,8 +14,8 @@ export class TwitterDataEffects {
   initializeStream$ = this.actions$.pipe(
     ofType(TwitterDataActionTypes.INITIALIZE_STREAM),
     tap(() => this.dataStreamService.initMessageStream()),
-    catchError(() => {
-      console.log('An error ocurred while initializing the stream.');
+    catchError(err => {
+      console.log('An error ocurred while initializing the stream.', err);
       return EMPTY;
     })
   );
