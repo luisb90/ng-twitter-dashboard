@@ -12,25 +12,30 @@
 
     .dashboard {
       display: flex;
-      width: 100%;
 
       .history-container {
         margin: 0 20px;
-        flex-basis: auto;
-        flex-grow: 1;
+        flex: 1;
       }
 
       .card-container {
-        flex-basis: auto;
-        flex-grow: 2;
+        flex: 3;
 
         > div {
           display: flex;
-          justify-content: space-between;
+          flex: 1;
 
           &.data-cards {
+            justify-content: space-evenly;
             app-data-display-card {
               margin: 20px;
+            }
+          }
+
+          &.chart-cards {
+            app-pie-chart-card {
+              flex-basis: 100%;
+              width: 0;
             }
           }
         }

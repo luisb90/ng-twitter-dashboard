@@ -25,7 +25,10 @@ export const twitterDataReducer = produce(
           return;
         }
 
-        draft.tweetCount[draft.selectedHashtag] = 0;
+        if (draft.selectedHashtag) {
+          draft.tweetCount[draft.selectedHashtag] = 0;
+        }
+
         draft.countryCodeData = {};
 
         draft.selectedHashtag = action.payload.hashtag;

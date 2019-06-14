@@ -61,6 +61,7 @@ export class DataStreamService implements OnDestroy {
   }
 
   private hasHashtag(tweet: TwitterMessage) {
+    // Check both the text and the hastags to match against for more chances at a relevant tweet.
     return (
       tweet.text.toLowerCase().includes(this.hashtag.toLowerCase()) ||
       tweet.entities.hashtags.find(
