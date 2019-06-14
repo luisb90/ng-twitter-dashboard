@@ -2,26 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
 
-## Development server
+This project connects to the [PubNub realtime Twitter data stream](https://www.pubnub.com/developers/realtime-data-streams/twitter-stream/) using its Angular2 SDK. The stream provides real Twitter data at a maximum rate of 50 Tweets per second. The user can input a hashtag and get realtime tweet count, average tweets per minute, and a sample of the tweet's country codes. For better results, I matched user hashtags searches to both the tweet data's hashtag data, as well as checking if the text included the hashtag word searched.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Author information
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Made by: Luis Bello  
+Email: luisbe090@gmail.com  
+[LinkedIn](https://www.linkedin.com/in/luisbe90/)
