@@ -19,5 +19,8 @@ export class TwitterDataEffects {
     })
   );
 
-  constructor(private actions$: Actions, private dataStreamService: DataStreamService) {}
+  constructor(
+    private actions$: Actions,
+    private dataStreamService: DataStreamService
+  ) {}
 }

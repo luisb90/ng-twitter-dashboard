@@ -4,7 +4,9 @@ import { bufferTime, pairwise, map } from 'rxjs/operators';
 
 import { TwitterDataState } from './twitter-data.reducer';
 
-export const selectMessagesState = createFeatureSelector<TwitterDataState>('twitterData');
+export const selectMessagesState = createFeatureSelector<TwitterDataState>(
+  'twitterData'
+);
 
 export const selectSelectedHashtag = createSelector(
   selectMessagesState,

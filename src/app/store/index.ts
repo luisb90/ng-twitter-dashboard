@@ -5,7 +5,10 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { environment } from '../../environments/environment';
 import { TwitterDataEffects } from './twitter-data/twitter-data.effects';
-import { TwitterDataState, twitterDataReducer } from './twitter-data/twitter-data.reducer';
+import {
+  TwitterDataState,
+  twitterDataReducer
+} from './twitter-data/twitter-data.reducer';
 
 export interface State {
   twitterData: TwitterDataState;

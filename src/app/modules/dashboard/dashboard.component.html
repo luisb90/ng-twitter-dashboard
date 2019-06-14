@@ -1,10 +1,14 @@
 <div class="container">
   <div>
-    <h2 *ngIf="(selectedHashtag$ | async) as selectedHashtag">#{{ selectedHashtag }}</h2>
+    <h2 *ngIf="selectedHashtag$ | async as selectedHashtag">
+      #{{ selectedHashtag }}
+    </h2>
   </div>
 
   <div class="card-container">
-    <app-number-of-tweets-card></app-number-of-tweets-card>
-    <app-average-per-minute-card></app-average-per-minute-card>
+    <app-data-display-card
+      [data]="selectedHashtagTweetCount$ | async"
+      dataLabel="Tweets"
+    ></app-data-display-card>
   </div>
 </div>

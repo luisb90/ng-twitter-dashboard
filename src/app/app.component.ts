@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { SetSelectedHashtag, InitializeStream } from './store/twitter-data/twitter-data.actions';
+import {
+  SetSelectedHashtag,
+  InitializeStream
+} from './store/twitter-data/twitter-data.actions';
 import { State } from './store';
 
 @Component({

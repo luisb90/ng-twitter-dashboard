@@ -24,4 +24,7 @@ export class InitializeStream implements Action {
   readonly type = TwitterDataActionTypes.INITIALIZE_STREAM;
 }
 
-export type TwitterDataActionsUnion = SetSelectedHashtag | ProcessTweet | InitializeStream;
+export type TwitterDataActionsUnion =
+  | SetSelectedHashtag
+  | ProcessTweet
+  | InitializeStream;
