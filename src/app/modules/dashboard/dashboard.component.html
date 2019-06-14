@@ -10,5 +10,9 @@
       [data]="selectedHashtagTweetCount$ | async"
       dataLabel="Tweets"
     ></app-data-display-card>
+    <app-data-display-card
+      [data]="selectedHashtagAvgPerMin$ | async"
+      dataLabel="Avg / min"
+    ></app-data-display-card>
   </div>
 </div>
