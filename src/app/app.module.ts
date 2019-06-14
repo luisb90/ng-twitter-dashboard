@@ -13,9 +13,9 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { DataDisplayCardComponent } from './modules/dashboard/data-display-card/data-display-card.component';
+import { HashtagHistoryCardComponent } from './modules/dashboard/hashtag-history-card/hashtag-history-card.component';
 import { PieChartCardComponent } from './modules/dashboard/pie-chart-card/pie-chart-card.component';
 import { TwitterStoreModule } from './store';
-import { HashtagHistoryCardComponent } from './modules/dashboard/hashtag-history-card/hashtag-history-card.component';
 
 @NgModule({
   declarations: [

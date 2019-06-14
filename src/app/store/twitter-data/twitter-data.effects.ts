@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
-import { TwitterDataActionTypes } from './twitter-data.actions';
-import { DataStreamService } from '../../services/data-stream.service';
-import { EMPTY } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
+import { EMPTY } from 'rxjs';
+import { Injectable } from '@angular/core';
+
+import { DataStreamService } from '../../services/data-stream.service';
+import { TwitterDataActionTypes } from './twitter-data.actions';
 
 @Injectable({
   providedIn: 'root'

@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { AppModule } from '../../../app.module';
 import { PieChartCardComponent } from './pie-chart-card.component';
 
 describe('PieChartCardComponent', () => {
@@ -8,7 +9,7 @@ describe('PieChartCardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [PieChartCardComponent]
+      imports: [AppModule]
     }).compileComponents();
   }));
 

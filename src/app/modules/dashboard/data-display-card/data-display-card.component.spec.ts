@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { AppModule } from '../../../app.module';
 import { DataDisplayCardComponent } from './data-display-card.component';
 
 describe('DataDisplayCardComponent', () => {
@@ -8,7 +9,7 @@ describe('DataDisplayCardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [DataDisplayCardComponent]
+      imports: [AppModule]
     }).compileComponents();
   }));
 

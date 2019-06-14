@@ -1,6 +1,6 @@
+import { bufferTime, map, skip, scan } from 'rxjs/operators';
 import { createFeatureSelector, createSelector, select } from '@ngrx/store';
 import { pipe } from 'rxjs';
-import { bufferTime, map, skip, scan } from 'rxjs/operators';
 
 import { TwitterDataState } from './twitter-data.reducer';
 

@@ -1,12 +1,12 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { PubNubAngular } from 'pubnub-angular2';
-import { Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
+import { Subscription } from 'rxjs';
 
-import { TwitterMessage, Hashtag } from '../models/twitter-message';
-import { State } from '../store';
-import { selectSelectedHashtag } from '../store/twitter-data/twitter-data.selectors';
 import { ProcessTweet } from '../store/twitter-data/twitter-data.actions';
+import { selectSelectedHashtag } from '../store/twitter-data/twitter-data.selectors';
+import { State } from '../store';
+import { TwitterMessage } from '../models/twitter-message';
 
 @Injectable({
   providedIn: 'root'

@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { AppModule } from '../../../app.module';
 import { HashtagHistoryCardComponent } from './hashtag-history-card.component';
 
 describe('HashtagHistoryCardComponent', () => {
@@ -8,9 +9,8 @@ describe('HashtagHistoryCardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HashtagHistoryCardComponent ]
-    })
-    .compileComponents();
+      imports: [AppModule]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
