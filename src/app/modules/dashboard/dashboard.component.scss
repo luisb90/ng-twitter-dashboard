@@ -10,19 +10,37 @@
       font-size: 1.5rem;
     }
 
-    .card-container {
-      > div {
-        display: flex;
-        justify-content: space-evenly;
+    .dashboard {
+      display: flex;
+      width: 100%;
 
-        &.data-cards {
-          padding-bottom: 10px;
-        }
+      .history-container {
+        margin: 0 20px;
+        flex-basis: auto;
+        flex-grow: 1;
+      }
 
-        &.chart-cards {
-          padding-top: 10px;
+      .card-container {
+        flex-basis: auto;
+        flex-grow: 2;
+
+        > div {
+          display: flex;
+          justify-content: space-between;
+
+          &.data-cards {
+            app-data-display-card {
+              margin: 20px;
+            }
+          }
         }
       }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .dashboard {
+      flex-direction: column;
     }
   }
 }

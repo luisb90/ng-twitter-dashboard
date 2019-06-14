@@ -1,6 +1,7 @@
 @import '~@angular/material/theming';
 
 :host {
+  display: block;
   flex-basis: 45%;
   padding-top: 15px;
 

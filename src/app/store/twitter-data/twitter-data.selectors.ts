@@ -38,6 +38,11 @@ export const selectCountryCodeDataArray = createSelector(
   }
 );
 
+export const selectHashtagHistory = createSelector(
+  selectTweetCount,
+  tweetCount => Object.keys(tweetCount)
+);
+
 export const selectTweetAveragePerMin = pipe(
   select(selectHashtagTweetCount),
   skip(1),

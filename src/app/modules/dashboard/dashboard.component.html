@@ -4,6 +4,7 @@
       <input
         matInput
         [formControl]="hashtagFormControl"
+        [value]="selectedHashtag$ | async"
         #input
         placeholder="try this: crypto"
         (keyup.enter)="setSelectedHashtag(input.value)"
@@ -15,20 +16,28 @@
     </mat-form-field>
   </div>
 
-  <div class="card-container">
-    <div class="data-cards">
-      <app-data-display-card
-        [data]="selectedHashtagTweetCount$ | async"
-        dataLabel="Tweets"
-      ></app-data-display-card>
-      <app-data-display-card
-        [data]="selectedHashtagAvgPerMin$ | async"
-        dataLabel="Avg / min"
-      ></app-data-display-card>
+  <div class="dashboard">
+    <div class="history-container">
+      <app-hashtag-history-card></app-hashtag-history-card>
     </div>
-    <mat-divider></mat-divider>
-    <div class="chart-cards">
-      <app-pie-chart-card [chartData]="chartData$ | async"></app-pie-chart-card>
+    <mat-divider [vertical]="true"></mat-divider>
+    <div class="card-container">
+      <div class="data-cards">
+        <app-data-display-card
+          [data]="selectedHashtagTweetCount$ | async"
+          dataLabel="Tweets"
+        ></app-data-display-card>
+        <app-data-display-card
+          [data]="selectedHashtagAvgPerMin$ | async"
+          dataLabel="Avg / min"
+        ></app-data-display-card>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="chart-cards">
+        <app-pie-chart-card
+          [chartData]="chartData$ | async"
+        ></app-pie-chart-card>
+      </div>
     </div>
   </div>
 </div>

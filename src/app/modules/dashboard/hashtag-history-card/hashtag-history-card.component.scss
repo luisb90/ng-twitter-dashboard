@@ -1,0 +1,10 @@
+@import '~@angular/material/theming';
+
+:host {
+  display: block;
+  height: 100%;
+
+  .mat-card {
+    height: 100%;
+  }
+}

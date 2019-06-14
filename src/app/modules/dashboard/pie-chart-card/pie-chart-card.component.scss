@@ -2,7 +2,9 @@
 
 :host {
   display: block;
-  flex-basis: 50%;
+  flex-basis: auto;
+  flex-grow: 1;
+  margin: 20px;
 
   .chart {
     height: 300px;
