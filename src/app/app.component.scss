@@ -1,6 +1,13 @@
 :host {
-  div {
-    padding-left: 15px;
+
+  .header {
+    padding-left: 20px;
+    background-color: #3F3F4A;
+
+    .title  {
+      font-size: 3rem;
+    }
+
   }
 
   .mat-divider {

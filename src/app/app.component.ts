@@ -11,11 +11,11 @@ import { State } from './store';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
-  title = 'Twitter dashboard';
+  title = 'Twitter Dashboard';
 
   constructor(private store: Store<State>) {
-    this.setSelectedHashtag('z');
-    this.store.dispatch(new InitializeStream());
+    this.setSelectedHashtag('a');
+    // this.store.dispatch(new InitializeStream());
   }
 
   public setSelectedHashtag(hashtag: string) {

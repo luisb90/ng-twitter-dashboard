@@ -1,5 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ChangeDetectionStrategy } from '@angular/compiler/src/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-pie-chart-card',
@@ -7,11 +6,6 @@ import { ChangeDetectionStrategy } from '@angular/compiler/src/core';
   styleUrls: ['./pie-chart-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PieChartCardComponent implements OnInit {
+export class PieChartCardComponent {
   @Input() public chartData: { name: string; value: number }[] = [];
-  @Input() public showLabels: boolean;
-
-  constructor() {}
-
-  ngOnInit() {}
 }
