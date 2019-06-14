@@ -1,18 +1,23 @@
 <div class="container">
   <div>
-    <h2 *ngIf="selectedHashtag$ | async as selectedHashtag">
-      #{{ selectedHashtag }}
-    </h2>
+    <h2 *ngIf="(selectedHashtag$ | async) as selectedHashtag">#{{ selectedHashtag }}</h2>
   </div>
 
   <div class="card-container">
-    <app-data-display-card
-      [data]="selectedHashtagTweetCount$ | async"
-      dataLabel="Tweets"
-    ></app-data-display-card>
-    <app-data-display-card
-      [data]="selectedHashtagAvgPerMin$ | async"
-      dataLabel="Avg / min"
-    ></app-data-display-card>
+    <div class="data-cards">
+      <app-data-display-card
+        [data]="selectedHashtagTweetCount$ | async"
+        dataLabel="Tweets"
+      ></app-data-display-card>
+      <mat-divider [vertical]="true"></mat-divider>
+      <app-data-display-card
+        [data]="selectedHashtagAvgPerMin$ | async"
+        dataLabel="Avg / min"
+      ></app-data-display-card>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="chart-cards">
+      <app-pie-chart-card [chartData]="chartData$ | async" [showLabels]="true"></app-pie-chart-card>
+    </div>
   </div>
 </div>

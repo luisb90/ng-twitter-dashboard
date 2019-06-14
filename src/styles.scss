@@ -29,3 +29,12 @@ $ng-twitter-dashboard-theme: mat-dark-theme($ng-twitter-dashboard-primary, $ng-t
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-app-background {
+  background-color: #131419;
+}
+
+.mat-card {
+  background-color: mat-color($mat-blue-grey, 900);
+}
+

@@ -4,9 +4,7 @@ import { bufferTime, pairwise, map, startWith } from 'rxjs/operators';
 
 import { TwitterDataState } from './twitter-data.reducer';
 
-export const selectMessagesState = createFeatureSelector<TwitterDataState>(
-  'twitterData'
-);
+export const selectMessagesState = createFeatureSelector<TwitterDataState>('twitterData');
 
 export const selectSelectedHashtag = createSelector(
   selectMessagesState,
@@ -18,10 +16,24 @@ export const selectTweetCount = createSelector(
   state => state.tweetCount
 );
 
+export const selectCountryCodeData = createSelector(
+  selectMessagesState,
+  state => state.countryCodeData
+);
+
 export const selectHashtagTweetCount = createSelector(
   selectTweetCount,
   selectSelectedHashtag,
   (tweetCount, hashtag: string) => tweetCount[hashtag]
+);
+
+export const selectCountryCodeDataArray = createSelector(
+  selectCountryCodeData,
+  countryCodeData => {
+    return Object.keys(countryCodeData).map(countryCode => {
+      return { name: countryCode, value: countryCodeData[countryCode] };
+    });
+  }
 );
 
 export const selectTweetAveragePerMin = pipe(
