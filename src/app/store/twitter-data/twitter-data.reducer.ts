@@ -11,7 +11,7 @@ export interface TwitterDataState {
   selectedHashtag: string;
 }
 
-export const initialState = {
+export const initialState: TwitterDataState = {
   tweetCount: {},
   countryCodeData: {},
   selectedHashtag: ''
@@ -47,6 +47,9 @@ export const twitterDataReducer = produce(
             draft.countryCodeData[countryCode] || 0;
           draft.countryCodeData[countryCode]++;
         }
+        return;
+      }
+      default: {
         return;
       }
     }
